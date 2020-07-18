@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TTTabBarController.h
 //  彩票App-基本框架
 //
 //  Created by 芝麻汤圆 on 2020/7/18.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface TTTabBarController : UITabBarController
 
 @end
 
+NS_ASSUME_NONNULL_END

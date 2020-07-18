@@ -8,7 +8,7 @@
 
 #import "SceneDelegate.h"
 #import "AppDelegate.h"
-
+#import "TTTabBarController.h"
 @interface SceneDelegate ()
 
 @end
@@ -20,6 +20,32 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    //创建主屏幕
+    UIWindowScene *windowScene = (UIWindowScene *)scene;
+    
+    //创建Windows
+    self.window = [[UIWindow alloc]initWithFrame:kMainScreenSize];
+    self.window = [[UIWindow alloc]initWithWindowScene:windowScene];
+    [self.window setWindowScene:windowScene];
+    
+    //创建TabBarViewController
+    TTTabBarController *tabbarController = [[TTTabBarController alloc] init];
+    //设置tabbar的子控制器
+    /**
+     //获取sb对象
+     UIViewController *hall = [self loadViewControllerWithSBName:@"Hall"];
+     UIViewController *discovery = [self loadViewControllerWithSBName:@"Discovery"];
+     UIViewController *history = [self loadViewControllerWithSBName:@"History"];
+     UIViewController *arena = [self loadViewControllerWithSBName:@"Arena"];
+     UIViewController *mylottery = [self loadViewControllerWithSBName:@"Mylottery"];
+     //将子控制器添加到tabbarController
+     tabbarController.viewControllers = @[hall, discovery, history, arena, mylottery];
+     */
+    //window设置根控制器
+    self.window.rootViewController = tabbarController;
+    
+    //window显示
+    [self.window makeKeyAndVisible];
 }
 
 

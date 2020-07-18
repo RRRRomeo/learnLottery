@@ -17,9 +17,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if (@available(iOS 13.0, *)) {
+        
+    } else {
+        //创建主屏幕
+        //创建Windows
+        self.window = [[UIWindow alloc]initWithFrame:kMainScreenSize];
+        
+        //创建TabBarViewController
+        UITabBarController *tabbarController = [[UITabBarController alloc] init];
+        //设置tabbar的子控制器
+        //获取sb对象
+        UIViewController *hall = [self loadViewControllerWithSBName:@"Hall"];
+        UIViewController *discovery = [self loadViewControllerWithSBName:@"Discovery"];
+        UIViewController *history = [self loadViewControllerWithSBName:@"History"];
+        UIViewController *arena = [self loadViewControllerWithSBName:@"Arena"];
+        UIViewController *mylottery = [self loadViewControllerWithSBName:@"Mylottery"];
+        //将子控制器添加到tabbarController
+        tabbarController.viewControllers = @[hall, discovery, history, arena, mylottery];
+        //window设置根控制器
+        self.window.rootViewController = tabbarController;
+        
+        //window显示
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
-
+- (UIViewController *)loadViewControllerWithSBName:(NSString *)name {
+    return [[UIStoryboard storyboardWithName:name bundle:nil] instantiateInitialViewController];
+}
 
 #pragma mark - UISceneSession lifecycle
 

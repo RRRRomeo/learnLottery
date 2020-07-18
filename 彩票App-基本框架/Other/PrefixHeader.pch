@@ -1,0 +1,11 @@
+//
+//  PrefixHeader.pch
+//  彩票App-基本框架
+//
+//  Created by 芝麻汤圆 on 2020/7/18.
+//  Copyright © 2020 芝麻汤圆. All rights reserved.
+//
+
+#define kMainScreenSize [UIScreen mainScreen].bounds
+#define kMainScreenWidthSzie [UIScreen mainScreen].bounds.size.width
+#define kMainScreenHeightSize [UIScreen mainScreen].bounds.size.height
